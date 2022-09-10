@@ -7,7 +7,7 @@ const HelloFun = (arrOne, arrTwo) => {
   const result = filteredArr.length ? true : false;
   return true;
 };
-HelloFun(arrayOne, arrayTwo);
+// HelloFun(arrayOne, arrayTwo);
 
 // Google interview Question return the first repeating numbers
 
@@ -17,8 +17,19 @@ HelloFun(arrayOne, arrayTwo);
 // Given an array = [1,5,1,2,1,45,9,4,2]
 // It shoud return 1
 
-// Given an array = [2,5,2,1,45,9,4,2]
-// It shoud return 2
-
 // Given an array = [1,2,3,4,5]
-// It shoud return 2
+// It shoud return undefine
+
+const repNumber = (array) => {
+  const dataObject = {};
+  for (let index = 0; index < array.length; index++) {
+    if (dataObject[array[index]] !== undefined) {
+      console.log(array[index]);
+      return;
+    } else {
+      dataObject[array[index]] = index;
+    }
+  }
+};
+
+repNumber([1, 5, 2, 1, 45, 9, 4, 2]);
