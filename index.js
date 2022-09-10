@@ -32,4 +32,36 @@ const repNumber = (array) => {
   }
 };
 
-repNumber([1, 5, 2, 1, 45, 9, 4, 2]);
+// repNumber([1, 5, 5, 2, 1, 45, 9, 4, 2]);
+
+// linkedList in js
+class linkedList {
+  constructor(value) {
+    this.head = {
+      value: value,
+      next: null,
+    };
+    this.tail = this.head;
+    this.length = 1;
+  }
+  append(value) {
+    const newNode = { value: value, next: null };
+    this.tail.next = newNode;
+    this.length += 1;
+    this.tail = newNode;
+  }
+  preAppend(value) {
+    const newNode = { value: value, next: this.head };
+    this.head = newNode;
+    this.length += 1;
+    this.tail = { value: value, next: null };
+  }
+}
+
+const myLinkedList = new linkedList(3);
+myLinkedList.append(5);
+myLinkedList.append(10);
+myLinkedList.append(25);
+myLinkedList.preAppend(1);
+myLinkedList.preAppend(2);
+console.log(JSON.stringify(myLinkedList.head), myLinkedList.length);
